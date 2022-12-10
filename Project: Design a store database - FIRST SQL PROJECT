@@ -1,0 +1,14 @@
+--Create a grocery store database
+CREATE TABLE candle_store (items INTEGER PRIMARY KEY, color TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO candle_store VALUES (1, "pink", 3, 4);
+INSERT INTO candle_store VALUES (2, "blue", 2, 5);
+INSERT INTO candle_store VALUES (3, "red", 5, 7);
+INSERT INTO candle_store VALUES (4, "sunset", 2, 4);
+INSERT INTO candle_store VALUES (5, "bold", 3, 6);
+
+--Display the data by the number of items
+SELECT * FROM candle_store ORDER BY quantity;
+
+--Show the candles color grouped by their prices
+SELECT color, price FROM candle_store GROUP BY price
