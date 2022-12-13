@@ -1,0 +1,41 @@
+/* Create table about the people and what they do here */
+CREATE TABLE celebrities (id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+
+INSERT INTO celebrities VALUES
+(1, "ryan reynolds", 46),
+(2, "sandra bullock", 58),
+(3, "gal gadot", 37),
+(4, "chris pine", 42), 
+(5, "zac efron", 35),
+(6, "dwayne johnson", 50);
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY, celebrity_id INTEGER, movie TEXT);
+
+INSERT INTO movies VALUES
+(1, 1, "the proposal"),
+(2, 1, "red notice"), 
+(3, 2, "the proposal"),
+(4, 2, "bird box"),
+(5, 3, "red notice"),
+(6, 3, "wonder woman"),
+(7, 4, "wonder woman"),
+(8, 4, "star trek"),
+(9, 5, "baywatch"), 
+(10, 5, "high school musical"),
+(11, 6, "baywatch"),
+(12, 6, "red notice");
+
+-Join the tables so it shows the actors/actresses next to their movies
+SELECT c.name, c.age, m.movie
+FROM celebrities c
+JOIN movies m
+ON c.id = m.celebrity_id;
+
+-Count how many movies each actor/actress is in
+SELECT c.name, COUNT(*)
+FROM celebrities c
+LEFT JOIN movies m
+ON c.id = m.celebrity_id
+GROUP BY c.name;
+
+
